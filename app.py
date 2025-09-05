@@ -82,6 +82,7 @@ with st.sidebar:
 @st.cache_data(show_spinner=False)
 def load_data(ticker, start, end):
     df = yf.download(ticker, start=start, end=end, auto_adjust=True, progress=False)
+    print(f"下載資料：{ticker}, {start} ~ {end}, 筆數={len(df)}")
     return df
 
 def _pick_close_series(df: pd.DataFrame) -> pd.Series:
